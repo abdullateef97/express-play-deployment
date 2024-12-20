@@ -1,3 +1,5 @@
+const axios = require('axios');
 module.exports.getStatus = async (res) => {
-  res.status(200).json({ healthy: true });
+  const response = await axios.get('http://universities.hipolabs.com/search?country=Germany');
+  return res.json(response.data);
 };
